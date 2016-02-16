@@ -16,7 +16,7 @@ func main() {
 	port := os.Getenv("PORT")
 
 	if port == "" {
-		port = ":8000"
+		port = "8000"
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -41,5 +41,5 @@ func main() {
 		fmt.Fprint(w, "\n")
 	});
 
-	log.Fatal(http.ListenAndServe(port, nil))
+	log.Fatal(http.ListenAndServe(":" + port, nil))
 }
