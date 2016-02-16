@@ -20,10 +20,9 @@ func main() {
 	}
 
 	rand.Seed(time.Now().UnixNano())
+	words := mishu.GetWordList("./data/raw/*")
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		words := mishu.GetWordList("./data/raw/*")
-
 		target := 64
 		poem := mishu.GeneratePoem(words, target)
 
