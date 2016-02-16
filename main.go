@@ -19,8 +19,9 @@ func main() {
 		port = "8000"
 	}
 
+	rand.Seed(time.Now().UnixNano())
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		rand.Seed(time.Now().Unix())
 		words := mishu.GetWordList("./data/raw/*")
 
 		target := 64
